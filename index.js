@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 import os, { hostname } from 'os';
 import chalk from 'chalk';
 import chalkAnimation from 'chalk-animation';
@@ -5,23 +7,23 @@ import figlet from 'figlet';
 
 const osName = os.hostname().toUpperCase();
 
-const sleep = (ms = 5000) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const sleep = (ms = 4000) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function dOs(){
     const rainbowTitle = chalkAnimation.rainbow(figlet.textSync(osName ));
+  
     await sleep();
+    console.log(`
+    OS : ${osName}
+    ${chalk.blue('Kernel')} : ${os.release()}
+    Shell : ${os.userInfo().shell}
+  
+  `);
+
     rainbowTitle.stop();
   };
 
 
     
 await dOs();
-console.log(`
-  OS : ${osName}
-  Kernel : ${os.release()}
-  UpTime : ${os.uptime()}
-  Shell : ${os.userInfo().shell}
-  Resolution : ${os.totalmem()}
-  Memory : ${os.freemem()}
-  
-`);
