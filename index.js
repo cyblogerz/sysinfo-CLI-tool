@@ -12,5 +12,16 @@ async function dOs(){
     await sleep();
     rainbowTitle.stop();
   };
+
+
     
 await dOs();
+console.log(`
+  OS : ${osName}
+  Kernel : ${os.release()}
+  UpTime : ${os.uptime()}
+  Shell : ${os.userInfo().shell}
+  Resolution : ${os.totalmem()}
+  Memory : ${os.freemem()}
+  
+`);
